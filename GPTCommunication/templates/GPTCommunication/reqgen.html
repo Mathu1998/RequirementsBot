@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    ReqGen - Chatbot based on GPT-3.5
+{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "GPTCommunication/reqgen.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+<div id="UploadGenerateArea">
+    <form id="upload_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Uploading:</h3>
+        <div class="upload_area">
+            <input type="file" name="file" id="uploadFile" hidden/>
+            <label id="upload_label" for="uploadFile">Click to choose a file</label>
+        </div>
+        <div id="upload_div">
+            <button type="submit" name="upload_form" id="upload_button">Upload</button>
+        </div>
+    </form>
+    <form id="interaction_form" method="post">
+        {% csrf_token %}
+        <h3>Generating:</h3>
+        <div class="button_area">
+            <button type="submit" id="submit_button" name="interaction_form" >Create requirements list</button>
+        </div>
+    </form>
+</div>
+<div class="output_area">
+    <div id="output_gpt">
+        <h3>Output:</h3>
+    </div>
+</div>
+<div id="output_text">
+    {% if response %}
+        <p id="response">
+            {{ response|safe|linebreaksbr }}
+        </p>
+        <br>
+        {% comment %} <a href="{% url "Requirements" %}">See requirements list</a> {% endcomment %}
+    {% else %}
+        {% if NoFileNoReq %}
+        <p id="responseTwo">Please upload a file first.</p>
+        {% elif NoFile %}
+        <p id="responseTwo">Please choose a file before clicking on upload.</p>
+        {% else %}  
+        <p id="response">No requirements were generated currently.</p>
+        {% endif %}
+    {% endif %}
+</div>
+<div id="ManageRequirementsArea">
+    <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
+</div>
+{% endblock content %}

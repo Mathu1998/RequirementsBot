@@ -1,0 +1,23 @@
+.main_content {
+    color: white;
+}
+
+.main_content p {
+    width: 500px;
+}
+
+.flex_container {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_child:first-child{
+    margin-left: 250px;
+}
+
+#robo_image {
+    width: 50%;
+    margin-left: 130px;
+}

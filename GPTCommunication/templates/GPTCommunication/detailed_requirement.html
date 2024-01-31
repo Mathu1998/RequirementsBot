@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block css_files %}
+ <link rel="stylesheet" href="{% static "GPTCommunication/detailed_requirement.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+<div id="BackButtonArea">
+    <button id="BackButton"  onclick="location.href='{% url "Requirements"%}';">Back</button>
+</div>
+<div class="Content">
+    <div class="UserStoryArea">
+        <h3>RequirementID: {{ requirement.requirementID.requirementID }}</h3> <br>
+        <h2>Requirement Description:</h2>
+        <p>{{ requirement.reqUserStory }}</p> <br>
+        <h2>Acceptance Criteria:</h2>
+        <p>{{ requirement.reqAcceptanceCriteria|linebreaksbr }}</p>
+    </div>
+</div>
+
+{% endblock content %}

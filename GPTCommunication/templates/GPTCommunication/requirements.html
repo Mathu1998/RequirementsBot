@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "GPTCommunication/requirements.css" %}">
+{% endblock css_files %}
+
+{% block title %}
+    Generated requirements
+{% endblock title %}
+
+{% block content %}
+<div id="BackButtonArea">
+    <button id="BackButton" onclick="location.href='{% url "ReqGen"%}';">Back</button>
+</div>
+{% if requirements %}
+<div class="RequirementsArea">
+    <div class="RequirementsList">
+        {% for requirement in requirements %}
+        <div class="Requirements">
+            <div class="RequirementElement">
+                <div class="ButtonArea">
+                    <div class="DetailButtonArea">
+                        <button class="DetailButton" onclick="location.href='{% url "RequirementDetail" requirement.requirementID %}';">Open</button>
+                    </div>
+                    <div class="DeleteButtonArea">
+                        <button class="DeleteButton" onclick="location.href='{% url "RequirementDelete" requirement.requirementID %}';">Delete</button>
+                    </div>
+                </div>
+                <h3 id="RequirementName">{{ requirement.requirementName }}</h3>
+                <p>{{ requirement.requirementDescription }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<h3 id="NoReqText">No requirements were found.</h3>
+{% endif %}
+{% endblock content %}
+
