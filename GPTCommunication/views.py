@@ -57,7 +57,7 @@ class RequirementGen:
                             "content": "Generate a user story description and three acceptance criteria requirements and output them in a structured way by using this template" + output_template + "and by using the provided input data and information. The user story description should not be longer then two sentences. Do not add any information more than the template defines."
                         }
                     ],
-                    model="gpt-4-0125-preview",
+                    model="gpt-3.5-turbo-1106",
                     max_tokens=300,
                     temperature=1,
                 )
@@ -135,7 +135,7 @@ class RequirementGen:
                             "content": "Suggest three (3) requirements and output them in a structured way by using this template" + output_template + "and by using the provided input data. Requirement description should not be longer then two senctences. Do not add any information more than the template defines."
                         }
                     ],
-                    model="gpt-4-0125-preview",
+                    model="gpt-3.5-turbo-1106",
                     max_tokens=300,
                     temperature=1,
                 )
