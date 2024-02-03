@@ -108,13 +108,10 @@ class RequirementGen:
         Requirement 1 - {Requirement name}
         {Requirement description}
         \n
-        Requirement 2 - {Requirment name}
+        Requirement 2 - {Requirement name}
         {Requirement description}
         \n
-        Requirement 3 - {Requirment name}
-        {Requirement description}
-        \n
-        Requirement 4 - {Requirment name}
+        Requirement 3 - {Requirement name}
         {Requirement description}
         \n
         ...
