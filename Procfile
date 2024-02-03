@@ -1,1 +1,1 @@
-web: gunicorn RequirementsBot.wsgi
+web: gunicorn RequirementsBot.wsgi --timout 60
