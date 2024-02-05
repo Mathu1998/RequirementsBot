@@ -36,6 +36,7 @@
     </div>
 </div>
 <div id="output_text">
+    <p id="responseFour">Requirements are generating...</p>
     {% if response %}
         <p id="response">
             {{ response|safe|linebreaksbr }}
@@ -57,17 +58,15 @@
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
 <script>
-    function disableButton() {
-        // Get the button by its ID
-        var button = document.getElementById('submit_button');
+    document.getElementById("submit_button").addEventListener("click", function() {
+        // Show the message
+        var message = document.getElementById("responseFour");
+        message.style.display = "block";
     
-        // Disable the button
-        button.disabled = true;
-    
-        // Set a timeout to re-enable the button after 5 seconds (5000 milliseconds)
+        // Hide the message after 3000 milliseconds (3 seconds)
         setTimeout(function() {
-            button.disabled = false;
-        }, 10000);
-    }
-    </script>
+            message.style.display = "none";
+        }, 3000);
+    });
+</script>
 {% endblock content %}

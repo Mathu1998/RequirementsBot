@@ -75,7 +75,7 @@
     border: 2px solid #ffffff;
     padding: 10px;
 }
-#responseThree {
+#responseThree, #responseFour {
     color: greenyellow;
     display: flex;
     justify-content: center;
