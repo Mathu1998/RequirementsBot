@@ -45,8 +45,10 @@
     {% else %}
         {% if GeneratingMessage %}
         <p id="responseThree">Three requirements are generated...</p>
+        {% endif %}
         {% if FileUploaded %}
         <p id="responseThree">File was uploaded successfully.</p>
+        {% endif %}
         {% if NoFileNoReq %}
         <p id="responseTwo">Please upload a file first.</p>
         {% elif NoFile %}
