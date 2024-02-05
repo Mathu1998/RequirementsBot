@@ -170,6 +170,10 @@ class RequirementGen:
                 if upload_file:
                     data = DataUpload(inputData=upload_file)
                     data.save()
+
+                    return render(request, "GPTCommunication/reqgen.html", {
+                        "FileUploaded": "FileUploaded"
+                    })
                 else:
                     return render(request, "GPTCommunication/reqgen.html", {
                         "NoFile": "NoFile"

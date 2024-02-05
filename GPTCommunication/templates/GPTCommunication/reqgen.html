@@ -43,6 +43,8 @@
         <br>
         {% comment %} <a href="{% url "Requirements" %}">See requirements list</a> {% endcomment %}
     {% else %}
+        {% if FileUploaded %}
+        <p id="responseThree">File was uploaded successfully.</p>
         {% if NoFileNoReq %}
         <p id="responseTwo">Please upload a file first.</p>
         {% elif NoFile %}

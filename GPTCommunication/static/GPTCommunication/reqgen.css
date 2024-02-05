@@ -75,6 +75,14 @@
     border: 2px solid #ffffff;
     padding: 10px;
 }
+#responseThree {
+    color: greenyellow;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    border: 2px solid #ffffff;
+    padding: 10px;
+}
 .upload_area {
     display: flex;
     justify-content: center;
