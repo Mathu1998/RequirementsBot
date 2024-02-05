@@ -35,10 +35,10 @@
         <h3>Output:</h3>
     </div>
 </div>
+<div>
+    <p id="responseFour">Please wait a few seconds.</p>
+</div>
 <div id="output_text">
-    <div>
-        <p id="responseFour">Please wait a few seconds.</p>
-    </div>
     {% if response %}
         <p id="response">
             {{ response|safe|linebreaksbr }}
@@ -70,7 +70,7 @@
         // Hide it after a few seconds (e.g., 5000 milliseconds = 5 seconds)
         setTimeout(function() {
             responseMessage.style.display = "none";
-        }, 5000);
+        }, 10000);
     });
     </script>
 {% endblock content %}
