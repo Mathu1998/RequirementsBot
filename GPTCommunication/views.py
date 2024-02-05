@@ -127,7 +127,8 @@ class RequirementGen:
         if RequirementGen.api_key is not None:
 
             if RequirementGen.getRecentUpload() is not None:
-
+                RequirementGen.ReqGenMessage(request)
+                
                 # Handles the actual interaction with the OpenAI API
                 # A context, the prompt of the user, model specifications, token number and temperature are configured
                 chatbot_response = RequirementGen.client.chat.completions.create(
@@ -187,7 +188,7 @@ class RequirementGen:
 
             # Checks if the interaction form was used to generate requirements based on the input data and triggers function to generate them
             if "interaction_form" in request.POST:
-                RequirementGen.ReqGenMessage(request)
+
                 return RequirementGen.createRequirementsList(request)
 
         # If no api key found or the request method is not POST it shows the html template again
