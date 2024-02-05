@@ -43,17 +43,16 @@
         <br>
         {% comment %} <a href="{% url "Requirements" %}">See requirements list</a> {% endcomment %}
     {% else %}
-        {% if GeneratingMessage %}
-        <p id="responseThree">Three requirements are generated...</p>
-        {% endif %}
-        {% if FileUploaded %}
-        <p id="responseThree">File was uploaded successfully.</p>
-        {% endif %}
         {% if NoFileNoReq %}
         <p id="responseTwo">Please upload a file first.</p>
         {% elif NoFile %}
-        <p id="responseTwo">Please choose a file before clicking on upload.</p>
-        {% else %}  
+        <p id="responseTwo">Please choose a file to upload.</p>
+        {% elif FileUploaded %}
+        <p id="responseThree">File was uploaded successfully.</p>
+        {% elif GeneratingMessage %}
+        <p id="responseThree">Requirements generating in progress.</p>
+        {% endif %}
+        {% else %}
         <p id="response">No requirements were generated currently.</p>
         {% endif %}
     {% endif %}

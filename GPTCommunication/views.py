@@ -125,7 +125,6 @@ class RequirementGen:
                 
         # Handles user input via form, prompting and displaying actual response from the api
         if RequirementGen.api_key is not None:
-            RequirementGen.ReqGenMessage(request)
 
             if RequirementGen.getRecentUpload() is not None:
 
@@ -188,6 +187,7 @@ class RequirementGen:
 
             # Checks if the interaction form was used to generate requirements based on the input data and triggers function to generate them
             if "interaction_form" in request.POST:
+                RequirementGen.ReqGenMessage(request)
                 return RequirementGen.createRequirementsList(request)
 
         # If no api key found or the request method is not POST it shows the html template again
