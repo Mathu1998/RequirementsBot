@@ -26,7 +26,7 @@
         {% csrf_token %}
         <h3>Generating:</h3>
         <div class="button_area">
-            <button type="submit" id="submit_button" name="interaction_form">Create requirements list</button>
+            <button type="submit" id="submit_button" name="interaction_form" onclick="makeButtonBlink()">Create requirements list</button>
         </div>
     </form>
 </div>
@@ -57,8 +57,8 @@
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
 <script>
-    document.getElementById("submit_button").addEventListener("click", function() {
-        let button = this;
+    function makeButtonBlink() {
+        let button = document.getElementById("submit_button");
         let isHidden = false;
     
         // Interval to toggle the class for blinking effect every 500ms
@@ -77,6 +77,7 @@
             clearInterval(blinkInterval);
             button.classList.remove("hidden"); // Ensure the button is visible after stopping
         }, 5000); // Adjust time for longer/shorter display
-    });
+    }
+    
 </script>
 {% endblock content %}
