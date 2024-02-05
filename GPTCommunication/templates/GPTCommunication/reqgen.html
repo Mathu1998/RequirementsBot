@@ -56,4 +56,18 @@
 <div id="ManageRequirementsArea">
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
+<script>
+    function disableButton() {
+        // Get the button by its ID
+        var button = document.getElementById('interaction_form');
+    
+        // Disable the button
+        button.disabled = true;
+    
+        // Set a timeout to re-enable the button after 5 seconds (5000 milliseconds)
+        setTimeout(function() {
+            button.disabled = false;
+        }, 10000);
+    }
+    </script>
 {% endblock content %}
