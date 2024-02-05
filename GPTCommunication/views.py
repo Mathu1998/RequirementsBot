@@ -228,7 +228,7 @@ class RequirementDelete(DeleteView):
 class SoleDisplay:
     # Function to show the home screen
     def showHome(request):
-        return render(request, "GPTCommunication/reqgen.html")
+        return render(request, "GPTCommunication/start.html")
 
     # Redirects from "" to home
     def redirectToHome(request):

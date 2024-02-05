@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    ReqGen - Chatbot based on GPT-3.5
+{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "GPTCommunication/start.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+<p>Please click: "Login"</p>
+<div id="UserName">
+    <input id="UserNameInput" type="text" value="User" readonly>
+</div>
+<div id="UserPw">
+    <input id="UserPwInput" type="text" value="*******" readonly>
+</div>
+<div id="LoginArea">
+    <button id="StartButton" onclick="location.href='{% url "ReqGen"%}';">Login</button>
+</div>
+{% endblock %}
