@@ -20,6 +20,12 @@ class RequirementGen:
     # Intializes instance of the OpenAI class to interact with the OpenAI API and passes the api key
     client = OpenAI(api_key=api_key)
 
+    # Message to display that requirements are generated
+    def ReqGenMessage(request):
+        return render(request, "GPTCommunication/reqgen.html", {
+                    "GeneratingMessage" : "GeneratingMessage"
+                })
+
     # Creates details for the specific requirements using GPT
     def createUserStory():
         # Gets all DB entries and saves them
@@ -119,6 +125,7 @@ class RequirementGen:
                 
         # Handles user input via form, prompting and displaying actual response from the api
         if RequirementGen.api_key is not None:
+            RequirementGen.ReqGenMessage(request)
 
             if RequirementGen.getRecentUpload() is not None:
 
