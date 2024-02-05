@@ -26,7 +26,7 @@
         {% csrf_token %}
         <h3>Generating:</h3>
         <div class="button_area">
-            <button type="submit" id="submit_button" name="interaction_form" onclick="blinkButton(this)">Create requirements list</button>
+            <button type="submit" id="submit_button" name="interaction_form">Create requirements list</button>
         </div>
     </form>
 </div>
@@ -36,6 +36,9 @@
     </div>
 </div>
 <div id="output_text">
+    <div>
+        <p id="responseFour">Please wait a few seconds.</p>
+    </div>
     {% if response %}
         <p id="response">
             {{ response|safe|linebreaksbr }}
@@ -57,25 +60,17 @@
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
 <script>
-    function blinkButton(button) {
-        let isHidden = false;
+    document.getElementById("submit_button").addEventListener("click", function() {
+        // Select the response message paragraph
+        var responseMessage = document.getElementById("responseFour");
     
-        // Interval to toggle the class for the blinking effect every 500ms
-        let blinkInterval = setInterval(function() {
-            if (isHidden) {
-                button.classList.remove("hidden");
-                isHidden = false;
-            } else {
-                button.classList.add("hidden");
-                isHidden = true;
-            }
-        }, 500); // Adjust time for faster/slower blinking
+        // Make it visible
+        responseMessage.style.display = "block";
     
-        // Stop blinking after 5 seconds
+        // Hide it after a few seconds (e.g., 5000 milliseconds = 5 seconds)
         setTimeout(function() {
-            clearInterval(blinkInterval);
-            button.classList.remove("hidden"); // Ensure the button is visible after stopping
-        }, 5000); // Adjust time for longer/shorter display
-    }
-</script>
+            responseMessage.style.display = "none";
+        }, 5000);
+    });
+    </script>
 {% endblock content %}
