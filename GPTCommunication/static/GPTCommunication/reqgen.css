@@ -75,7 +75,16 @@
     border: 2px solid #ffffff;
     padding: 10px;
 }
-#responseThree, #responseFour {
+#responseThree {
+    color: greenyellow;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    border: 2px solid #ffffff;
+    padding: 10px;
+}
+#responseFour {
+    display: none;
     color: greenyellow;
     display: flex;
     justify-content: center;
