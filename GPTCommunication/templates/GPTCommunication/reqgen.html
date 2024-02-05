@@ -26,7 +26,7 @@
         {% csrf_token %}
         <h3>Generating:</h3>
         <div class="button_area">
-            <button type="submit" id="submit_button" name="interaction_form" onclick="disableButton()">Create requirements list</button>
+            <button type="submit" id="submit_button" name="interaction_form" onclick="blinkButton()">Create requirements list</button>
         </div>
     </form>
 </div>
@@ -36,7 +36,6 @@
     </div>
 </div>
 <div id="output_text">
-    <p id="responseFour">Requirements are generating...</p>
     {% if response %}
         <p id="response">
             {{ response|safe|linebreaksbr }}
@@ -49,6 +48,8 @@
         <p id="responseTwo">Please choose a file to upload.</p>
         {% elif FileUploaded %}
         <p id="responseThree">File was uploaded successfully.</p>
+        {% else %}
+        <p id="response">No requirements were generated currently.</p>
         {% endif %}
     {% endif %}
 </div>
@@ -57,14 +58,25 @@
 </div>
 <script>
     document.getElementById("submit_button").addEventListener("click", function() {
-        // Show the message
-        var message = document.getElementById("responseFour");
-        message.style.display = "block";
+        let button = this;
+        let isHidden = false;
     
-        // Hide the message after 3000 milliseconds (3 seconds)
+        // Interval to toggle the class for blinking effect every 500ms
+        let blinkInterval = setInterval(function() {
+            if (isHidden) {
+                button.classList.remove("hidden");
+                isHidden = false;
+            } else {
+                button.classList.add("hidden");
+                isHidden = true;
+            }
+        }, 500); // Adjust time for faster/slower blinking
+    
+        // Stop blinking after 5 seconds
         setTimeout(function() {
-            message.style.display = "none";
-        }, 3000);
+            clearInterval(blinkInterval);
+            button.classList.remove("hidden"); // Ensure the button is visible after stopping
+        }, 5000); // Adjust time for longer/shorter display
     });
 </script>
 {% endblock content %}
