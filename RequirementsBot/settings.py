@@ -139,3 +139,5 @@ MEDIA_URL = "/user-media/"
 
 # For deploying
 django_heroku.settings(locals())
+
+# Reset db
