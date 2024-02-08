@@ -16,7 +16,7 @@ class RequirementsList(models.Model):
 
 # Table to upload and save generated detailed information about the specific requirements
 class RequirementDetail(models.Model):
-    requirementID = models.ForeignKey(RequirementsList, on_delete=models.CASCADE)
+    requirementID = models.OneToOneField(RequirementsList, on_delete=models.CASCADE, primary_key=True)
     reqUserStory = models.TextField()
     reqAcceptanceCriteria = models.TextField()
 

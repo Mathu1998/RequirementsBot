@@ -76,13 +76,6 @@ class RequirementGen:
                 requirement_detail.requirementID = requirements_list
                 requirement_detail.save()
 
-    # Gets the requirement identified through the primary key and the details generated through GPT
-    def getRequirementsDetail(request, pk):
-        requirement = get_object_or_404(RequirementDetail, requirementID=pk)
-        return render(request, "GPTCommunication/detailed_requirement.html", {
-            "requirement": requirement
-        })
-
     # Searches for recent upload and gives the content back if it exists otherwise it gives an error
     def getRecentUpload():
         try:
@@ -204,13 +197,21 @@ class RequirementGen:
             requirements_list.save()      
 
 # Class for the functionality of showing generated requirements in the UI
-class RequirementEdit:
+class RequirementDisplay:
     # Gets requirements from the DB and displays them using the template
     def showRequirements(request):
         requirements = RequirementsList.objects.all()
         return render(request, "GPTCommunication/requirements.html", {
             "requirements": requirements
         })
+    
+    # Gets the requirement identified through the primary key and the details generated through GPT
+    def getRequirementsDetail(request, pk):
+        requirement = get_object_or_404(RequirementDetail, requirementID=pk)
+        return render(request, "GPTCommunication/detailed_requirement.html", {
+            "requirement": requirement
+        })
+    
 
 # Class for the functionality of deleting requirement entries by users in the UI 
 class RequirementDelete(DeleteView):

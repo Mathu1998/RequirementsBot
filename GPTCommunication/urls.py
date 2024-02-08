@@ -5,8 +5,8 @@ from . import views
 urlpatterns = [
     path("reqgen", views.RequirementGen.handleProcess, name="ReqGen"),
     path("home", views.SoleDisplay.showHome, name="Home"),
-    path("requirements", views.RequirementEdit.showRequirements, name="Requirements"),
+    path("requirements", views.RequirementDisplay.showRequirements, name="Requirements"),
     path("RequirementsList/delete/<int:pk>/", views.RequirementDelete.as_view(), name="RequirementDelete"),
-    path("requirement/<int:pk>", views.RequirementGen.getRequirementsDetail, name="RequirementDetail"),
+    path("requirement/<int:pk>", views.RequirementDisplay.getRequirementsDetail, name="RequirementDetail"),
     path("", views.SoleDisplay.redirectToHome)
     ]
