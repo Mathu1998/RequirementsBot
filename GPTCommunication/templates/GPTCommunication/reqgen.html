@@ -14,6 +14,11 @@
     <form id="upload_form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h3>Uploading:</h3>
+        {% if FileName %}
+        <div id="FileNameMessage">
+            <p>File: {{ FileName }} was uploaded successfully.</p>
+        </div>
+        {% endif %}
         <div class="upload_area">
             <input type="file" name="file" id="uploadFile" hidden/>
             <label id="upload_label" for="uploadFile">Click to choose a file</label>
@@ -46,8 +51,6 @@
         <p id="responseTwo">Please upload a file first.</p>
         {% elif NoFile %}
         <p id="responseTwo">Please choose a file to upload.</p>
-        {% elif FileUploaded %}
-        <p id="responseThree">File was uploaded successfully.</p>
         {% else %}
         <p id="response">No requirements were generated currently.</p>
         {% endif %}
@@ -56,5 +59,14 @@
 <div id="ManageRequirementsArea">
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
+<script>
+    document.getElementById('uploadFile').addEventListener('change', function() {
+        // Check if a file was selected
+        if (this.files.length > 0) {
+            // Simulate a click on the submit button
+            document.getElementById('upload_button').click();
+        }
+    });
+</script>
 {% endblock content %}
 

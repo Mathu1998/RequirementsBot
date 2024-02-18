@@ -1,8 +1,8 @@
 /* Style for form in general */
 #interaction_form {
     justify-items: center;
-    margin-top: 100px;
-    margin-left: 200px;
+    margin-top: 50px;
+    /* margin-left: 200px; */
 }
 #interaction_form h3 {
     color: white;
@@ -34,7 +34,9 @@
 /* Area where the two buttons are displayed */
 .button_area {
     margin-top: 15px;
-    width: 30%;
+    /* width: 30%; */
+    display: flex;
+    justify-content: center;
 }
 
 /* Output field of response */
@@ -110,6 +112,7 @@
     cursor: pointer;
     transition: background-color .3s ease-in-out;
     text-align: center;
+    display: none;
 }
 #upload_div {
     display: flex;
@@ -160,8 +163,14 @@
     display: flex;
     justify-content: center;
 }
-#UploadGenerateArea {
+/* #UploadGenerateArea {
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+#FileNameMessage {
+    display: flex;
+    justify-content: center;
+    color: #00c000;
+    margin-bottom: 12px;
 }

@@ -164,8 +164,12 @@ class RequirementGen:
                     data = DataUpload(inputData=upload_file)
                     data.save()
 
+                    file_path = DataUpload.objects.order_by("-timestamp").first().inputData.name
+                    file_name = os.path.basename(file_path)
+
                     return render(request, "GPTCommunication/reqgen.html", {
-                        "FileUploaded": "FileUploaded"
+                        "FileUploaded": "FileUploaded",
+                        "FileName": file_name
                     })
                 else:
                     return render(request, "GPTCommunication/reqgen.html", {
@@ -174,8 +178,9 @@ class RequirementGen:
 
             # Checks if the interaction form was used to generate requirements based on the input data and triggers function to generate them
             if "interaction_form" in request.POST:
-
-                return RequirementGen.createRequirementsList(request)
+                
+                return render(request, "GPTCommunication/reqgen.html")
+                # return RequirementGen.createRequirementsList(request)
 
         # If no api key found or the request method is not POST it shows the html template again
         return render(request, "GPTCommunication/reqgen.html")
@@ -211,7 +216,6 @@ class RequirementDisplay:
         return render(request, "GPTCommunication/detailed_requirement.html", {
             "requirement": requirement
         })
-    
 
 # Class for the functionality of deleting requirement entries by users in the UI 
 class RequirementDelete(DeleteView):
