@@ -95,8 +95,20 @@
 #BackButton:active {
     transform: scale(0.9);
 }
-#NoReqText {
-    margin-top: 20px;
-    color: #f3dc12;
-    text-align: center;
+#InfoMessage {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    color: yellow;
+    margin-bottom: 12px;
+    align-items: center;
+}
+#BorderAreaInfo {
+    display: flex;
+    border: 2px solid yellow;
+    padding: 3px;
+}
+#IconArea {
+    display: flex;
+    padding-right:3px;
 }

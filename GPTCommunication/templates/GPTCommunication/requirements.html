@@ -35,7 +35,14 @@
     </div>
 </div>
 {% else %}
-<h3 id="NoReqText">No requirements were found.</h3>
+<div id="InfoMessage">
+    <div id="BorderAreaInfo">
+        <div id="IconArea">
+            <img src="{% static "images/Info_Yellow.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+        </div>
+        <p>Please upload a file first.</p>
+    </div>
+</div>
 {% endif %}
 {% endblock content %}
 

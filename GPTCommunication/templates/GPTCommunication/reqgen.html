@@ -10,17 +10,43 @@
 {% endblock css_files %}
 
 {% block content %}
+{% if NoFileNoReq %}
+<div id="ErrorMessage">
+    <div id="BorderAreaError">
+        <div id="IconArea">
+            <img src="{% static "images/Error_Red.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+        </div>
+        <p>Please upload a file first.</p>
+    </div>
+</div>
+{% elif FileName %}
+<div id="SuccessMessage">
+    <div id="BorderAreaSuccess">
+        <div id="IconArea">
+            <img src="{% static "images/Info_Green.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+        </div>
+        <p>The file "{{ FileName }}" was uploaded successfully.</p>
+    </div>
+</div>
+{% elif not response %}
+<div id="InfoMessage">
+    <div id="BorderAreaInfo">
+        <div id="IconArea">
+            <img src="{% static "images/Info_Yellow.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+        </div>
+        <p>The bot only accepts .txt files</p>
+    </div>
+</div>
+{% endif %}
 <div id="UploadGenerateArea">
     <form id="upload_form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <h3>Uploading:</h3>
-        {% if FileName %}
-        <div id="FileNameMessage">
-            <p>File: {{ FileName }} was uploaded successfully.</p>
-        </div>
-        {% endif %}
+        <h3>Input</h3>
+        {% comment %} <div id="FileTypeMessage">
+            <p>The bot only accepts .txt files</p>
+        </div> {% endcomment %}
         <div class="upload_area">
-            <input type="file" name="file" id="uploadFile" hidden/>
+            <input type="file" name="file" id="uploadFile" accept=".txt" hidden/>
             <label id="upload_label" for="uploadFile">Click to choose a file</label>
         </div>
         <div id="upload_div">
@@ -29,7 +55,18 @@
     </form>
     <form id="interaction_form" method="post">
         {% csrf_token %}
-        <h3>Generating:</h3>
+        {% comment %} {% if requirementsGen %}
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Immediately show the loading animation
+            document.getElementById('LoadingIcon').style.display = 'flex';
+            checkDivContent();
+        });
+        </script>
+        {% endif %}
+        <div id="LoadingIcon">
+            <p>LOADING</p>
+        </div> {% endcomment %}
         <div class="button_area">
             <button type="submit" id="submit_button" name="interaction_form">Create requirements list</button>
         </div>
@@ -37,7 +74,7 @@
 </div>
 <div class="output_area">
     <div id="output_gpt">
-        <h3>Output:</h3>
+        <h3>Output</h3>
     </div>
 </div>
 <div id="output_text">
@@ -47,13 +84,7 @@
         </p>
         <br>
     {% else %}
-        {% if NoFileNoReq %}
-        <p id="responseTwo">Please upload a file first.</p>
-        {% elif NoFile %}
-        <p id="responseTwo">Please choose a file to upload.</p>
-        {% else %}
-        <p id="response">No requirements were generated currently.</p>
-        {% endif %}
+        <p id="response">No new requirements to display.</p>
     {% endif %}
 </div>
 <div id="ManageRequirementsArea">
@@ -67,6 +98,18 @@
             document.getElementById('upload_button').click();
         }
     });
+
+    {% comment %} function checkDivContent() {
+        var checkInterval = setInterval(function() {
+            var contentDiv = document.getElementById('response').textContent;
+            
+            // Assuming you're waiting for the content to change from its initial state
+            if(contentDiv !== "No new requirements to display.") {
+                document.getElementById('LoadingIcon').style.display = 'none';
+                clearInterval(checkInterval);
+            }
+        }, 1000); // Check every 1000 milliseconds (1 second)
+    } {% endcomment %}
 </script>
 {% endblock content %}
 

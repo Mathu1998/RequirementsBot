@@ -178,9 +178,12 @@ class RequirementGen:
 
             # Checks if the interaction form was used to generate requirements based on the input data and triggers function to generate them
             if "interaction_form" in request.POST:
-                
-                return render(request, "GPTCommunication/reqgen.html")
-                # return RequirementGen.createRequirementsList(request)
+
+                # Dummy for test purposes
+                # return render(request, "GPTCommunication/reqgen.html")
+            
+                # Real function call
+                return RequirementGen.createRequirementsList(request)
 
         # If no api key found or the request method is not POST it shows the html template again
         return render(request, "GPTCommunication/reqgen.html")
