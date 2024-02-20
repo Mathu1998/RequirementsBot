@@ -1,9 +1,9 @@
 /* Style for form in general */
-#interaction_form {
+.interaction_form {
     justify-items: center;
     margin-top: -6px;
 }
-#interaction_form h3 {
+.interaction_form h3 {
     color: white;
     margin-bottom: 15px;
     display: flex;
@@ -11,7 +11,7 @@
 }
 
 /* Style of button for sending the request to GPT */
-#submit_button {
+.submit_button {
     width: 218px;
     min-height: 34px;
     border: none;
@@ -22,11 +22,11 @@
     transition: background-color .3s ease-in-out;
     text-align: center;
 }
-#submit_button:hover {
+.submit_button:hover {
     color: white;
     box-shadow: inset 0 100px 0 0 #7968e9;
 }
-#submit_button:active {
+.submit_button:active {
     transform: scale(0.9);
 }
 
@@ -212,11 +212,6 @@
     font-size: small;
     color: yellow;
 }
-/* #LoadingIcon {
-    display: none;
-    justify-content: center; 
-    color: powderblue;
-} */
 #InfoMessage {
     margin-top: 15px;
     display: flex;
@@ -233,4 +228,13 @@
 #IconArea {
     display: flex;
     padding-right:3px;
+}
+.hide {
+    display: none;
+}
+#LoadingIcon {
+    color: blueviolet;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    margin-bottom: 10px;
 }

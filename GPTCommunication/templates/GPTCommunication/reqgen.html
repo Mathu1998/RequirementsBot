@@ -39,6 +39,9 @@
 </div>
 {% endif %}
 <div id="UploadGenerateArea">
+    <div id="LoadingIcon">
+        <p>...Loading...</p>
+    </div>
     <form id="upload_form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h3>Input</h3>
@@ -53,7 +56,7 @@
             <button type="submit" name="upload_form" id="upload_button">Upload</button>
         </div>
     </form>
-    <form id="interaction_form" method="post">
+    <form class="interaction_form" method="post">
         {% csrf_token %}
         {% comment %} {% if requirementsGen %}
         <script>
@@ -68,7 +71,9 @@
             <p>LOADING</p>
         </div> {% endcomment %}
         <div class="button_area">
-            <button type="submit" id="submit_button" name="interaction_form">Create requirements list</button>
+            <button type="submit" class="submit_button" name="interaction_form">
+                Create requirements list
+            </button>
         </div>
     </form>
 </div>
@@ -90,6 +95,7 @@
 <div id="ManageRequirementsArea">
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     document.getElementById('uploadFile').addEventListener('change', function() {
         // Check if a file was selected
@@ -110,6 +116,57 @@
             }
         }, 1000); // Check every 1000 milliseconds (1 second)
     } {% endcomment %}
+
+/*    jQuery(".submit_button").on("click", function(event) {
+        event.preventDefault();
+        jQuery(".LoadingIcon").removeClass("hide");
+        jQuery(this).attr("disabled", true);
+
+            setTimeout(function() {
+                jQuery(".LoadingIcon").addClass("hide");
+                jQuery(".submit_button").attr("disabled", false);
+            }, 3000) 
+            
+            
+                    setTimeout(function() {
+            jQuery(".interaction_form").submit();
+        }, 1000)
+        }) */
+
+    {% comment %} jQuery(".submit_button").on("click", function(event) {
+        // Temporarily prevent the form from submitting
+        event.preventDefault();
+    
+        // Access the form that this button belongs to
+        var form = jQuery(this).closest(".interaction_form");
+    
+        // Show the loading icon and disable the submit button
+        jQuery(".LoadingIcon").removeClass("hide");
+        jQuery(this).attr("disabled", true);
+        console.log("Attempting to submit form2", form);
+    
+        // Now, programmatically submit the form
+        // Use a slight delay if necessary to ensure UI updates are rendered
+        setTimeout(function() {
+            form.submit();
+            console.log("Attempting to submit form", form);
+            // This bypasses the jQuery event handler and submits the form
+        }, 1000); // Adjust the delay as needed; may not be necessary
+    }); {% endcomment %}
+
+</script>
+<script>
+    document.querySelector('.interaction_form').addEventListener('submit', function() {
+        // Show the loading icon
+        document.getElementById('LoadingIcon').style.display = 'flex';
+
+        document.getElementById('upload_form').style.display = 'none';
+        document.getElementById('InfoMessage').style.display = 'none';
+
+        document.querySelectorAll('.interaction_form').forEach(function(element) {
+            element.style.display = 'none';
+        });
+    });
 </script>
 {% endblock content %}
 
