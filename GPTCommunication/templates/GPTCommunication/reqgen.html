@@ -45,6 +45,7 @@
     </div>
     <div id="LoadingText"><p>Please wait</p></div>
     {% endif %}
+    {% if not response %}
     <form id="upload_form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h3>Input</h3>
@@ -64,6 +65,7 @@
             </button>
         </div>
     </form>
+    {% endif %}
 </div>
 <div id="outArea" class="output_area">
     <div id="output_gpt">

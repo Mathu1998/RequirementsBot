@@ -19,6 +19,10 @@
         {% for requirement in requirements %}
         <div class="Requirements">
             <div class="RequirementElement">
+                <div id="RequirementDescription" >
+                    <h3 id="RequirementName">{{ requirement.requirementName }}</h3>
+                    <p>{{ requirement.requirementDescription }}</p>
+                </div>
                 <div class="ButtonArea">
                     <div class="DetailButtonArea">
                         <button class="DetailButton" onclick="location.href='{% url "RequirementDetail" requirement.requirementID %}';">Open</button>
@@ -27,8 +31,6 @@
                         <button class="DeleteButton" onclick="location.href='{% url "RequirementDelete" requirement.requirementID %}';">Delete</button>
                     </div>
                 </div>
-                <h3 id="RequirementName">{{ requirement.requirementName }}</h3>
-                <p>{{ requirement.requirementDescription }}</p>
             </div>
         </div>
         {% endfor %}

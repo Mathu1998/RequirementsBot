@@ -281,4 +281,10 @@
     display: none;
     color: white;
     justify-content: center;
+    animation: blink 3s linear infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }

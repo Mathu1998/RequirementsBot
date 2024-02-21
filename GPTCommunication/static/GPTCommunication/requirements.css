@@ -1,8 +1,15 @@
+#RequirementName {
+    margin-bottom: 4px;
+}
 .RequirementsArea {
     margin-top: 20px;
     color: white;
     display: flex;
     justify-content: center;
+}
+#RequirementDescription {
+    flex-grow: 1;
+    width: 75%;
 }
 .RequirementsList:after {
     content: "";
@@ -10,14 +17,15 @@
     clear: both;
 }
 .RequirementElement {
+    display: flex;
     padding: 10px;
     margin-top: 15px;
     border: 2px dashed rgb(209, 209, 209);
     border-radius: 6px 6px 6px 6px;
-    min-height: 81px;
+    height: fit-content;
 }
 .RequirementsList {
-    width: 40%;
+    width: 50%;
 }
 .DeleteButton {
     padding: 3px;
@@ -64,12 +72,10 @@
     transform: scale(0.9);
 }
 .ButtonArea {
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-#RequirementName {
-    padding-top: 10px;
+    justify-content: flex-end;
 }
 #BackButtonArea {
     display: flex;
@@ -111,4 +117,7 @@
 #IconArea {
     display: flex;
     padding-right:3px;
+}
+.DetailButtonArea {
+    margin-right: 10px;
 }

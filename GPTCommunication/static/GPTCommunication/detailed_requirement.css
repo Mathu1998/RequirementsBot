@@ -8,8 +8,11 @@
 .UserStoryArea {
     border: 2px dashed rgb(209, 209, 209);
     padding: 15px;
-    width: 50%;
     color: white;
+}
+
+.UserStoryArea h1 {
+    text-decoration: underline;
 }
 
 .UserStoryArea p {
@@ -39,4 +42,7 @@
 }
 #BackButton:active {
     transform: scale(0.9);
+}
+#RequirementIDText {
+    font-size: small;
 }
