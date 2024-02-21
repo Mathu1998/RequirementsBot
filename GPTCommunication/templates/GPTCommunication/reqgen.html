@@ -48,9 +48,6 @@
     <form id="upload_form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h3>Input</h3>
-        {% comment %} <div id="FileTypeMessage">
-            <p>The bot only accepts .txt files</p>
-        </div> {% endcomment %}
         <div class="upload_area">
             <input type="file" name="file" id="uploadFile" accept=".txt" hidden/>
             <label id="upload_label" for="uploadFile">Click to choose a file</label>
@@ -61,18 +58,6 @@
     </form>
     <form id="interForm" class="interaction_form" method="post">
         {% csrf_token %}
-        {% comment %} {% if requirementsGen %}
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Immediately show the loading animation
-            document.getElementById('LoadingIcon').style.display = 'flex';
-            checkDivContent();
-        });
-        </script>
-        {% endif %}
-        <div id="LoadingIcon">
-            <p>LOADING</p>
-        </div> {% endcomment %}
         <div class="button_area">
             <button type="submit" class="submit_button" name="interaction_form">
                 Create requirements list
@@ -98,7 +83,6 @@
 <div id="ManageRequirementsArea">
     <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
 </div>
-{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> {% endcomment %}
 <script>
     document.getElementById('uploadFile').addEventListener('change', function() {
         // Check if a file was selected
