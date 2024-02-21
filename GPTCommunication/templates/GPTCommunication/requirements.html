@@ -10,41 +10,43 @@
 {% endblock title %}
 
 {% block content %}
-<div id="BackButtonArea">
-    <button id="BackButton" onclick="location.href='{% url "ReqGen"%}';">Back</button>
-</div>
-{% if requirements %}
-<div class="RequirementsArea">
-    <div class="RequirementsList">
-        {% for requirement in requirements %}
-        <div class="Requirements">
-            <div class="RequirementElement">
-                <div id="RequirementDescription" >
-                    <h3 id="RequirementName">{{ requirement.requirementName }}</h3>
-                    <p>{{ requirement.requirementDescription }}</p>
-                </div>
-                <div class="ButtonArea">
-                    <div class="DetailButtonArea">
-                        <button class="DetailButton" onclick="location.href='{% url "RequirementDetail" requirement.requirementID %}';">Open</button>
+<div id="Layout">
+    <div id="BackButtonArea">
+        <button id="BackButton" onclick="location.href='{% url "ReqGen"%}';">Back</button>
+    </div>
+    {% if requirements %}
+    <div class="RequirementsArea">
+        <div class="RequirementsList">
+            {% for requirement in requirements %}
+            <div class="Requirements">
+                <div class="RequirementElement">
+                    <div id="RequirementDescription" >
+                        <h3 id="RequirementName">{{ requirement.requirementName }}</h3>
+                        <p>{{ requirement.requirementDescription }}</p>
                     </div>
-                    <div class="DeleteButtonArea">
-                        <button class="DeleteButton" onclick="location.href='{% url "RequirementDelete" requirement.requirementID %}';">Delete</button>
+                    <div class="ButtonArea">
+                        <div class="DetailButtonArea">
+                            <button class="DetailButton" onclick="location.href='{% url "RequirementDetail" requirement.requirementID %}';">Open</button>
+                        </div>
+                        <div class="DeleteButtonArea">
+                            <button class="DeleteButton" onclick="location.href='{% url "RequirementDelete" requirement.requirementID %}';">Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-{% else %}
-<div id="InfoMessage">
-    <div id="BorderAreaInfo">
-        <div id="IconArea">
-            <img src="{% static "images/Info_Yellow.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+    {% else %}
+    <div id="InfoMessage">
+        <div id="BorderAreaInfo">
+            <div id="IconArea">
+                <img src="{% static "images/Info_Yellow.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+            </div>
+            <p>Please upload a file first.</p>
         </div>
-        <p>Please upload a file first.</p>
     </div>
+    {% endif %}
 </div>
-{% endif %}
 {% endblock content %}
 

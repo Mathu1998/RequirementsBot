@@ -25,7 +25,7 @@
     height: fit-content;
 }
 .RequirementsList {
-    width: 50%;
+    width: 75%;
 }
 .DeleteButton {
     padding: 3px;
@@ -58,7 +58,7 @@
     border: none;
     border-radius: 6px 6px 6px 6px;
     background-color: rgb(255, 255, 255);
-    color: black;
+    color: #000;
     font-size: 15px;
     cursor: pointer;
     transition: background-color .3s ease-in-out;
@@ -66,7 +66,7 @@
 }
 .DetailButton:hover {
     color: white;
-    box-shadow: inset 0 -100px 0 0 rgb(186, 186, 186);
+    box-shadow: inset 0 -100px 0 0 #ADB6C4;
 }
 .DetailButton:active {
     transform: scale(0.9);
@@ -87,16 +87,16 @@
     min-height: 25px;
     border: none;
     border-radius: 6px 6px 6px 6px;
-    background-color: rgb(125, 125, 125);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: #000;
     font-size: 15px;
     cursor: pointer;
     transition: background-color .3s ease-in-out;
     text-align: center;
 }
 #BackButton:hover {
-    color: black;
-    box-shadow: inset 0 -100px 0 0 rgb(255, 255, 255);
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #ADB6C4;
 }
 #BackButton:active {
     transform: scale(0.9);

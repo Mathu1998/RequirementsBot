@@ -1,3 +1,8 @@
+#Layout {
+    width: 50%;
+    padding: 14px;
+    border-radius: 6%;
+}
 /* Style for form in general */
 .interaction_form {
     justify-items: center;
@@ -16,7 +21,7 @@
     width: 218px;
     min-height: 34px;
     border: none;
-    background-color: #4c3da8;
+    background-color: #824C71;
     color: #fff;
     font-size: 15px;
     cursor: pointer;
@@ -26,7 +31,7 @@
 
 .submit_button:hover {
     color: white;
-    box-shadow: inset 0 100px 0 0 #7968e9;
+    box-shadow: inset 0 100px 0 0 #ADB6C4;
 }
 
 .submit_button:active {
@@ -64,6 +69,7 @@
 }
 
 #response {
+    border-radius: 12px;
     color: white;
     display: flex;
     justify-content: center;
@@ -71,15 +77,6 @@
     border: 2px solid #ffffff;
     padding: 10px;
 }
-
-/* #responseTwo {
-    color: yellow;
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-    border: 2px solid #ffffff;
-    padding: 10px;
-} */
 #responseThree {
     color: greenyellow;
     display: flex;
@@ -137,7 +134,7 @@
 }
 
 #upload_label {
-    border: 1px dashed rgb(209, 209, 209);
+    border: 1px solid rgb(209, 209, 209);
     display: inline-block;
     color: rgb(209, 209, 209);
     padding: 0.5rem;
@@ -150,12 +147,13 @@
 }
 
 #upload_label:hover {
-    color: rgb(255, 255, 255);
+    background-color: white;
+    color: #001B2E;
     border: 1px solid rgb(255, 255, 255);
 }
 
 #ManageRequirements {
-    width: 159px;
+    width: 250px;
     min-height: 25px;
     border: none;
     border-radius: 6px 6px 6px 6px;
@@ -169,7 +167,7 @@
 
 #ManageRequirements:hover {
     color: white;
-    box-shadow: inset 0 -100px 0 0 rgb(125, 125, 125);
+    box-shadow: inset 0 -100px 0 0 #ADB6C4;
 }
 
 #ManageRequirements:active {
@@ -177,7 +175,7 @@
 }
 
 #ManageRequirementsArea {
-    margin-top: 25px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
@@ -190,27 +188,27 @@
 #SuccessMessage {
     display: flex;
     justify-content: center;
-    color: #00c000;
+    color: rgb(86, 189, 55);
     margin-bottom: 12px;
 }
 
 #BorderAreaSuccess {
     display: flex;
-    border: 2px solid #00c000;
+    border: 2px solid rgb(86, 189, 55);
     padding: 3px;
 }
 
 #ErrorMessage {
     display: flex;
     justify-content: center;
-    color: #f00000;
+    color: red;
     margin-bottom: 12px;
     align-items: center;
 }
 
 #BorderAreaError {
     display: flex;
-    border: 2px solid #f00000;
+    border: 2px solid red;
     padding: 3px;
 }
 
@@ -218,14 +216,6 @@
     display: flex;
     padding-right: 3px;
 }
-
-/* #ErrorMessage p {
-    border: 2px solid darkred;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 30px;
-    padding-right: 6px;
-} */
 #FileTypeMessage {
     display: flex;
     justify-content: center;
@@ -266,8 +256,8 @@
     margin-bottom: 10px;
 }
 .loader {
-    border: 4px solid #f3f3f3; /* Light grey */
-    border-top: 4px solid #4c3da8; /* Blue */
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #824C71;
     border-radius: 50%;
     width: 26px;
     height: 26px;
