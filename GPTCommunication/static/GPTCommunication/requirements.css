@@ -39,7 +39,7 @@
 .DeleteButton {
     padding: 3px;
     width: 49px;
-    min-height: 22px;
+    min-height: 28px;
     border: none;
     border-radius: 6px 6px 6px 6px;
     background-color: rgb(169, 0, 0);
@@ -63,7 +63,7 @@
 .DetailButton {
     padding: 3px;
     width: 49px;
-    min-height: 22px;
+    min-height: 28px;
     border: none;
     border-radius: 6px 6px 6px 6px;
     background-color: rgb(255, 255, 255);
@@ -93,7 +93,7 @@
 
 #BackButton {
     width: 50px;
-    min-height: 25px;
+    min-height: 28px;
     border: none;
     border-radius: 6px 6px 6px 6px;
     background-color: rgb(255, 255, 255);
