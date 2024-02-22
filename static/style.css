@@ -7,21 +7,21 @@
 }
 
 body {
-    background-color: #001B2E;
+    background-color: #233d40;
 }
 
 .header {
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 0px 11px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background-color: #001B2E;
+    background-color: #233d40;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
-    border-bottom: 2px solid white;
 }
 
 .logo {

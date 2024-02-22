@@ -98,13 +98,13 @@ class RequirementGen:
 
         # Template showing how to generate requirements
         output_template = """
-        Requirement 1 - {Requirement name}
+        Requirement - {Requirement name}
         {Requirement description}
         \n
-        Requirement 2 - {Requirement name}
+        Requirement - {Requirement name}
         {Requirement description}
         \n
-        Requirement 3 - {Requirement name}
+        Requirement - {Requirement name}
         {Requirement description}
         \n
         ...

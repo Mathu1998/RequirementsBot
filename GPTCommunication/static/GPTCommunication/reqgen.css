@@ -1,10 +1,10 @@
 #Layout {
-    box-shadow: rgb(0 0 0 / 60%) 0px 0px 20px 4px;
-    width: 50%;
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 0px 11px;
+    width: 30%;
     padding: 14px;
     padding-bottom: 30px;
     border-radius: 2%;
-    background: #00121e;
+    background: #1b2f31;
 }
 /* Style for form in general */
 .interaction_form {
