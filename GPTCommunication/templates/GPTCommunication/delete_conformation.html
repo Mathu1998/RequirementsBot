@@ -6,19 +6,19 @@ Delete Conformation Page
 {% endblock title %}
 
 {% block css_files %}
-
+    <link rel="stylesheet" href="{% static "GPTCommunication/delete_conformation.css" %}">
 {% endblock css_files %}
 
 {% block content %}
-    <form method="post" action="">
+<div id="Layout">
+    <form method="post">
         {% csrf_token %}
-        <h1>Are you sure you want to delete the requirement?</h1><br>
-        <input type="submit" value="Yes" onclick="location.href='{% url "RequirementDelete" requirement.requirementID %}';">
-        <a href="/requirements">
-            <div>
-                Cancel
-            </div>
-        </a>
+        <h2>Are you sure you want to delete the requirement?</h2><br>
+        <div id="ButtonArea">
+            <button name="DeleteButton" class="DeleteButton" type="submit" onclick="location.href='{% url "ConfDelete" requirement.requirementID %}';">Delete</button>
+            <button name="CancelButton" class="CancelButton" onclick="location.href='{% url "Requirements" %}';">Cancel</button>
+        </div>
     </form>
+</div>
 {% endblock content %}
 

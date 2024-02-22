@@ -1,0 +1,60 @@
+#Layout {
+    display: flex;
+    justify-content: center;
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 20px 4px;
+    width: 50%;
+    padding: 14px;
+    padding-bottom: 30px;
+    border-radius: 2%;
+    background: #00121e;
+}
+
+#Layout h2 {
+    color: white;
+}
+#ButtonArea {
+    display: flex;
+    justify-content: center;
+}
+.DeleteButton {
+    margin-right: 10px;
+    padding: 3px;
+    width: 55px;
+    min-height: 28px;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    background-color: rgb(169, 0, 0);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    text-align: center;
+}
+.DeleteButton:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(221, 0, 0);
+}
+.DeleteButton:active {
+    transform: scale(0.9);
+}
+.CancelButton {
+    margin-left: 10px;
+    padding: 3px;
+    width: 55px;
+    min-height: 28px;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    background-color: rgb(86, 189, 55);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    text-align: center;
+}
+.CancelButton:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(104, 225, 67);
+}
+.CancelButton:active {
+    transform: scale(0.9);
+}

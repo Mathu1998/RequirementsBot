@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -221,17 +221,18 @@ class RequirementDisplay:
         })
 
 # Class for the functionality of deleting requirement entries by users in the UI 
-class RequirementDelete(DeleteView):
-    model = RequirementsList
-    template_name = "GPTCommunication/requirements.html"
-    success_url = reverse_lazy("Requirements")
-
-# Overwrites get function so that object is deleted first before the success url is called
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        success_url = self.get_success_url()
-        self.object.delete()
-        return HttpResponseRedirect(success_url)
+class RequirementDelete:
+    def deleteRequirement(request, pk):
+        requirement = RequirementsList.objects.get(requirementID=pk)
+        if request.method == 'POST':
+            if 'DeleteButton' in request.POST:
+                requirement.delete()
+                return redirect("Requirements")
+            if 'CancelButton' in request.POST:
+                return redirect("Requirements")
+        return render(request, 'GPTCommunication/delete_conformation.html', {
+            "requirement": requirement
+        })
     
 class SoleDisplay:
     # Function to show the home screen
