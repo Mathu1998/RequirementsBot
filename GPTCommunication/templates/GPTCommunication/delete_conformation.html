@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Delete Conformation Page
+{% endblock title %}
+
+{% block css_files %}
+
+{% endblock css_files %}
+
+{% block content %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <h1>Are you sure you want to delete the requirement?</h1><br>
+        <input type="submit" value="Yes" onclick="location.href='{% url "RequirementDelete" requirement.requirementID %}';">
+        <a href="/requirements">
+            <div>
+                Cancel
+            </div>
+        </a>
+    </form>
+{% endblock content %}
+

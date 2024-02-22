@@ -10,14 +10,16 @@
 {% endblock css_files %}
 
 {% block content %}
-<p>Please click: "Login"</p>
-<div id="UserName">
-    <input id="UserNameInput" type="text" value="User" readonly>
-</div>
-<div id="UserPw">
-    <input id="UserPwInput" type="text" value="*******" readonly>
-</div>
-<div id="LoginArea">
-    <button id="StartButton" onclick="location.href='{% url "ReqGen"%}';">Login</button>
+<div id="Layout">
+    <p>Please click: "Login"</p>
+    <div id="UserName">
+        <input id="UserNameInput" type="text" value="User" readonly>
+    </div>
+    <div id="UserPw">
+        <input id="UserPwInput" type="text" value="*******" readonly>
+    </div>
+    <div id="LoginArea">
+        <button id="StartButton" onclick="location.href='{% url "ReqGen"%}';">Login</button>
+    </div>
 </div>
 {% endblock %}

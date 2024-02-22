@@ -1,3 +1,11 @@
+#Layout {
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 20px 4px;
+    width: 50%;
+    padding: 14px;
+    padding-bottom: 30px;
+    border-radius: 2%;
+    background: #00121e;
+}
 .Content {
     display: flex;
     justify-content: center;
@@ -6,7 +14,7 @@
 }
 
 .UserStoryArea {
-    border: 2px dashed rgb(209, 209, 209);
+    border: 2px solid #ADB6C4;
     padding: 15px;
     color: white;
 }
