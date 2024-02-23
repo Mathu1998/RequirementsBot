@@ -11,12 +11,13 @@ body {
 }
 
 .header {
-    box-shadow: rgb(0 0 0 / 60%) 0px 0px 0px 11px;
+    font-size: x-large;
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 20px 4px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 30px 100px;
     background-color: #233d40;
     display: flex;
     justify-content: center;

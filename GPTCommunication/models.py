@@ -1,5 +1,9 @@
 from django.db import models
 
+class UserData(models.Model):
+    ReqGenDecision = models.IntegerField()
+    timestamp = models.DateTimeField(auto_now_add=True, null=True)
+
 # Table to upload data inputs
 class DataUpload(models.Model):
     inputData = models.FileField(upload_to="uploads")

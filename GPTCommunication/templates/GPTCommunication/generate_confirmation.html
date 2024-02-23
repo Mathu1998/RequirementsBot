@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Generation Conformation Page
+{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "GPTCommunication/generate_confirmation.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+<div id="Layout">
+    <div>
+        <div id="LoadingIcon">
+            <div class="loader"></div>
+        </div>
+        <div id="LoadingText"><p>Please wait</p></div>
+    </div>
+    <form class="ConfirmForm" id="ConfirmForm" method="post">
+        {% csrf_token %}
+        <h3>There are already requirements available.</h3>
+        <h2>Are you sure you want to re-generate?</h2><br>
+        <div id="ButtonArea">
+            <button name="ConfirmButton" class="ConfirmButton" type="submit">Confirm</button>
+            <button name="CancelButton" class="CancelButton" onclick="location.href='{% url "Requirements" %}';">Cancel</button>
+        </div>
+    </form>
+</div>
+<script>
+    document.querySelector('.ConfirmForm').addEventListener('submit', function() {
+        // Show the loading icon
+        document.getElementById('LoadingIcon').style.display = 'flex';
+        document.getElementById('LoadingText').style.display = 'flex';
+
+        document.getElementById('ConfirmForm').style.display = 'none';
+
+    });
+</script>
+{% endblock content %}
+

@@ -3,9 +3,7 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 from django.http import HttpResponseRedirect
-from .models import DataUpload, RequirementsList, RequirementDetail
-from django.views.generic.edit import DeleteView
-from django.urls import reverse_lazy
+from .models import DataUpload, RequirementsList, RequirementDetail, UserData
 from django.shortcuts import get_object_or_404
 
 # Class for the functionalities of connecting to the OpenAI API, generating content and displaying content in the UI
@@ -175,15 +173,44 @@ class RequirementGen:
                     return render(request, "GPTCommunication/reqgen.html", {
                         "NoFile": "NoFile"
                     })
+                
+            if "ConfirmButton" in request.POST:
+                userData = UserData(ReqGenDecision=1)
+                userData.save()
+                
+                return RequirementGen.createRequirementsList(request)
+                
+            if "CancelButton" in request.POST:
+                userData = UserData(ReqGenDecision=0)
+                userData.save()
+
+                return HttpResponseRedirect("/requirements")
 
             # Checks if the interaction form was used to generate requirements based on the input data and triggers function to generate them
             if "interaction_form" in request.POST:
+                status_requirementslist = RequirementsList.objects.exists()
+                status_userdata = UserData.objects.exists()
 
-                # Dummy for test purposes
-                # return render(request, "GPTCommunication/reqgen.html")
-            
-                # Real function call
-                return RequirementGen.createRequirementsList(request)
+                if status_userdata == True:
+                    recent_decision = UserData.objects.order_by("-timestamp")[0].ReqGenDecision
+                else:
+                    recent_decision = 0
+
+                if status_requirementslist == True:
+                    if recent_decision == 0:
+                        return render(request, "GPTCommunication/generate_confirmation.html")
+                    
+                    if recent_decision == 1:
+                        userData = UserData(ReqGenDecision=0)
+                        userData.save()
+
+                        return RequirementGen.createRequirementsList(request)
+                
+                elif status_requirementslist == False:
+                    userData = UserData(ReqGenDecision=0)
+                    userData.save()
+
+                    return RequirementGen.createRequirementsList(request)
 
         # If no api key found or the request method is not POST it shows the html template again
         return render(request, "GPTCommunication/reqgen.html")
@@ -230,7 +257,7 @@ class RequirementDelete:
                 return redirect("Requirements")
             if 'CancelButton' in request.POST:
                 return redirect("Requirements")
-        return render(request, 'GPTCommunication/delete_conformation.html', {
+        return render(request, 'GPTCommunication/delete_confirmation.html', {
             "requirement": requirement
         })
     

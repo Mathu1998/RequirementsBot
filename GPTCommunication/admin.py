@@ -1,8 +1,11 @@
 from django.contrib import admin
-from .models import DataUpload, RequirementsList, RequirementDetail
+from .models import DataUpload, RequirementsList, RequirementDetail, UserData
     
 
 # Configuration of tables and their displayment in the admin dialog
+class UserDataAdmin(admin.ModelAdmin):
+    list_display = ("ReqGenDecision", )
+
 class RequirementsListAdmin(admin.ModelAdmin):
     list_display = ("requirementID", "requirementName",)
 
@@ -16,3 +19,4 @@ class RequirementDetailAdmin(admin.ModelAdmin):
 admin.site.register(DataUpload, DataUploadAdmin)
 admin.site.register(RequirementsList, RequirementsListAdmin)
 admin.site.register(RequirementDetail, RequirementDetailAdmin)
+admin.site.register(UserData, UserDataAdmin)

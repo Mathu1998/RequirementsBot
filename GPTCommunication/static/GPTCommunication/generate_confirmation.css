@@ -1,0 +1,107 @@
+.main_content {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+#Layout {
+    border: 2px solid #ADB6C4;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 20px 4px;
+    width: 54%;
+    padding: 14px;
+    padding-bottom: 30px;
+    background: #1b2f31;
+}
+
+#Layout h2 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+#Layout h3 {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+#ButtonArea {
+    display: flex;
+    justify-content: center;
+}
+.CancelButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 3px;
+    width: 70px;
+    min-height: 28px;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    background-color: rgb(169, 0, 0);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    text-align: center;
+}
+.CancelButton:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(221, 0, 0);
+}
+.CancelButton:active {
+    transform: scale(0.9);
+}
+.ConfirmButton {
+    padding: 3px;
+    width: 70px;
+    min-height: 28px;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    background-color: rgb(86, 189, 55);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    text-align: center;
+}
+.ConfirmButton:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(104, 225, 67);
+}
+.ConfirmButton:active {
+    transform: scale(0.9);
+}
+.hide {
+    display: none;
+}
+
+#LoadingIcon {
+    color: blueviolet;
+    display: none;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #824C71;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    animation: spin 2s linear infinite;
+  }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#LoadingText {
+    display: none;
+    color: white;
+    justify-content: center;
+    animation: blink 3s linear infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
