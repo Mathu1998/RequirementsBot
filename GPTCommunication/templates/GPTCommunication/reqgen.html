@@ -10,81 +10,100 @@
 {% endblock css_files %}
 
 {% block content %}
-<div id="Layout">
-    {% if NoFileNoReq %}
-    <div id="ErrorMessage">
-        <div id="BorderAreaError">
-            <div id="IconArea">
-                <img src="{% static "images/Error_Red.svg" %}" alt="ErrorIcon" width="20px" height="20px">
-            </div>
-            <p>Please upload a file first.</p>
-        </div>
+<div id="ToolIntroArea1">
+    <div class="ToolIntro">
+        <p id="Bigger">The RequirementsBot </p>
+        <p id="Normal"> supports your requirements elicitation and description activities in an agile setting based on your input data.</p>
     </div>
-    {% elif FileName %}
-    <div id="SuccessMessage">
-        <div id="BorderAreaSuccess">
-            <div id="IconArea">
-                <img src="{% static "images/Info_Green.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+</div>
+<div id="ToolFunctionalities">
+    <div id="ToolIntroArea2">
+        <div class="ToolIntro2">
+            <p>Create your user storys</p><br>
+            <ul id="BotSteps">
+                <li>Choose your file,</li>
+                <li>Create requirements list,</li>
+                <li>see requirements and</li>
+                <li> manage in detail.</li>
+            </ul>
+        </div>
+</div>
+    <div id="Layout">
+        {% if NoFileNoReq %}
+        <div id="ErrorMessage">
+            <div id="BorderAreaError">
+                <div id="IconArea">
+                    <img src="{% static "images/Error_Red.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+                </div>
+                <p>Please upload a file first.</p>
             </div>
-            <p>"{{ FileName }}" was uploaded.</p>
         </div>
-    </div>
-    {% elif not response %}
-    <div id="InfoMessage">
-        <div id="BorderAreaInfo">
-            <div id="IconArea">
-                <img src="{% static "images/Info_Yellow.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+        {% elif FileName %}
+        <div id="SuccessMessage">
+            <div id="BorderAreaSuccess">
+                <div id="IconArea">
+                    <img src="{% static "images/Info_Green.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+                </div>
+                <p>"{{ FileName }}" was uploaded.</p>
             </div>
-            <p>The bot only accepts .txt files</p>
         </div>
-    </div>
-    {% endif %}
-    <div id="UploadGenerateArea">
-        {% if not NoFileNoReq %}
-        <div id="LoadingIcon">
-            <div class="loader"></div>
+        {% elif not response %}
+        <div id="InfoMessage">
+            <div id="BorderAreaInfo">
+                <div id="IconArea">
+                    <img src="{% static "images/Info_Yellow.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+                </div>
+                <p>The bot only accepts .txt files</p>
+            </div>
         </div>
-        <div id="LoadingText"><p>Please wait</p></div>
         {% endif %}
-        {% if not response %}
-        <form id="upload_form" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <h3>Input</h3>
-            <div class="upload_area">
-                <input type="file" name="file" id="uploadFile" accept=".txt" hidden/>
-                <label id="upload_label" for="uploadFile">Click to choose a file</label>
+        <div id="UploadGenerateArea">
+            {% if not NoFileNoReq %}
+            <div id="LoadingIcon">
+                <div class="loader"></div>
             </div>
-            <div id="upload_div">
-                <button type="submit" name="upload_form" id="upload_button">Upload</button>
-            </div>
-        </form>
-        <form id="interForm" class="interaction_form" method="post">
-            {% csrf_token %}
-            <div class="button_area">
-                <button type="submit" class="submit_button" name="interaction_form">
-                    Create requirements list
-                </button>
-            </div>
-        </form>
-        {% endif %}
-    </div>
-    <div id="outArea" class="output_area">
-        <div id="output_gpt">
-            <h3>Output</h3>
+            <div id="LoadingText"><p>Please wait</p></div>
+            {% endif %}
+            {% if not response %}
+            <form id="upload_form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h3>Input</h3>
+                <div class="upload_area">
+                    <input type="file" name="file" id="uploadFile" accept=".txt" hidden/>
+                    <label id="upload_label" for="uploadFile">Click to choose a file</label>
+                </div>
+                <div id="upload_div">
+                    <button type="submit" name="upload_form" id="upload_button">Upload</button>
+                </div>
+            </form>
+            <form id="interForm" class="interaction_form" method="post">
+                {% csrf_token %}
+                <div class="button_area">
+                    <button type="submit" class="submit_button" name="interaction_form">
+                        Create requirements list
+                    </button>
+                </div>
+            </form>
+            {% endif %}
         </div>
-    </div>
-    <div id="output_text">
-        {% if response %}
-            <p id="response">
-                {{ response|safe|linebreaksbr }}
-            </p>
-            <br>
-        {% else %}
-            <p id="response">No new requirements to display.</p>
-        {% endif %}
-    </div>
-    <div id="ManageRequirementsArea">
-        <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
+        <div id="outArea" class="output_area">
+            <div id="output_gpt">
+                <h3>Output</h3>
+            </div>
+        </div>
+        <div id="output_text">
+            {% if response %}
+                <p id="response">
+                    {{ response|safe|linebreaksbr }}
+                </p>
+                <br>
+            {% else %}
+                <p id="response">No new requirements to display.</p>
+            {% endif %}
+        </div>
+        <div id="ManageRequirementsArea">
+            <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
+        </div>
     </div>
 </div>
 <script>

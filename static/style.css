@@ -40,9 +40,3 @@ body {
     text-decoration: none;
     margin-left: 40px;
 }
-
-.main_content {
-    margin-top: 200px;
-    display: flex;
-    justify-content: center;
-}

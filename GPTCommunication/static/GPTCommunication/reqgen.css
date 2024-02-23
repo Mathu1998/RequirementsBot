@@ -1,3 +1,6 @@
+.main_content {
+    margin-top: 120px;
+}
 #Layout {
     box-shadow: rgb(0 0 0 / 60%) 0px 0px 0px 11px;
     width: 30%;
@@ -5,6 +8,59 @@
     padding-bottom: 30px;
     border-radius: 2%;
     background: #1b2f31;
+}
+#ToolIntroArea1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+#ToolIntroArea2 {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    align-items: center;
+}
+.ToolIntro {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 73%;
+    box-shadow: inset rgb(0 0 0 / 60%) 0px 0px 16px 9px;
+    background: #1b2f31;
+    padding: 14px;
+    color: white;
+}
+.ToolIntro2 {
+    margin-right: -15%;
+    line-height: 1.4;
+    height: 44%;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 58%;
+    box-shadow: inset rgb(0 0 0 / 60%) 0px 0px 16px 9px;
+    background: #1b2f31;
+    padding: 25px;
+    color: white;
+}
+.ToolIntro2 p {
+    font-weight: 600;
+}
+#BotSteps {
+    margin-left: 15px;
+    list-style-type: circle;
+}
+#Normal {
+    font-weight: 600;
+}
+#Bigger {
+    font-weight: 700;
+    font-size: xx-large;
+}
+#ToolFunctionalities {
+    margin-left: -25%;
+    display: flex;
+    justify-content: center;
 }
 /* Style for form in general */
 .interaction_form {

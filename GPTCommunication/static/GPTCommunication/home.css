@@ -1,4 +1,9 @@
 .main_content {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+.main_content {
     color: white;
 }
 
