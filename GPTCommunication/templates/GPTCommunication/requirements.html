@@ -15,6 +15,14 @@
         <button id="BackButton" onclick="location.href='{% url "ReqGen"%}';">Back</button>
     </div>
     {% if requirements %}
+    <div id="SuccessMessage">
+        <div id="BorderAreaSuccess">
+            <div id="IconArea">
+                <img src="{% static "images/Info_Green.svg" %}" alt="ErrorIcon" width="20px" height="20px">
+            </div>
+            <p>{{ requirementsCount }} requirements were generated below.</p>
+        </div>
+    </div>
     <div class="RequirementsArea">
         <div class="RequirementsList">
             {% for requirement in requirements %}

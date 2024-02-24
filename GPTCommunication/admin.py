@@ -4,7 +4,7 @@ from .models import DataUpload, RequirementsList, RequirementDetail, UserData
 
 # Configuration of tables and their displayment in the admin dialog
 class UserDataAdmin(admin.ModelAdmin):
-    list_display = ("ReqGenDecision", )
+    list_display = ("ReqGenDecision","timestamp", )
 
 class RequirementsListAdmin(admin.ModelAdmin):
     list_display = ("requirementID", "requirementName",)

@@ -186,7 +186,7 @@ class RequirementGen:
                 userData = UserData(ReqGenDecision=0)
                 userData.save()
 
-                return HttpResponseRedirect("/requirements")
+                return RequirementDisplay.showRequirements(request)
 
             # Checks if the interaction form was used to generate requirements based on the input data and triggers function to generate them
             if "interaction_form" in request.POST:
@@ -238,8 +238,10 @@ class RequirementDisplay:
     # Gets requirements from the DB and displays them using the template
     def showRequirements(request):
         requirements = RequirementsList.objects.all()
+
         return render(request, "GPTCommunication/requirements.html", {
-            "requirements": requirements
+            "requirements": requirements,
+            "requirementsCount": requirements.count()
         })
     
     # Gets the requirement identified through the primary key and the details generated through GPT

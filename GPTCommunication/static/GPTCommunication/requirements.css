@@ -134,3 +134,20 @@
 .DetailButtonArea {
     margin-right: 10px;
 }
+#SuccessMessage {
+    display: flex;
+    justify-content: center;
+    color: rgb(86, 189, 55);
+    margin-bottom: 12px;
+}
+
+#BorderAreaSuccess {
+    margin-top: 15px;
+    display: flex;
+    border: 2px solid rgb(86, 189, 55);
+    padding: 3px;
+}
+#IconArea {
+    display: flex;
+    padding-right: 3px;
+}

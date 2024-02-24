@@ -57,13 +57,13 @@
             </div>
         </div>
         {% endif %}
-        <div id="UploadGenerateArea">
-            {% if not NoFileNoReq %}
+        {% if not NoFileNoReq %}
             <div id="LoadingIcon">
                 <div class="loader"></div>
             </div>
             <div id="LoadingText"><p>Please wait</p></div>
-            {% endif %}
+        {% endif %}
+        <div id="UploadGenerateArea">
             {% if not response %}
             <form id="upload_form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -86,23 +86,25 @@
             </form>
             {% endif %}
         </div>
-        <div id="outArea" class="output_area">
-            <div id="output_gpt">
-                <h3>Output</h3>
+        <div id="OutputDisplay">
+            <div id="outArea" class="output_area">
+                <div id="output_gpt">
+                    <h3>Output</h3>
+                </div>
             </div>
-        </div>
-        <div id="output_text">
-            {% if response %}
-                <p id="response">
-                    {{ response|safe|linebreaksbr }}
-                </p>
-                <br>
-            {% else %}
-                <p id="response">No new requirements to display.</p>
-            {% endif %}
-        </div>
-        <div id="ManageRequirementsArea">
-            <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
+            <div id="output_text">
+                {% if response %}
+                    <p id="response">
+                        {{ response|safe|linebreaksbr }}
+                    </p>
+                    <br>
+                {% else %}
+                    <p id="response">No new requirements to display.</p>
+                {% endif %}
+            </div>
+            <div id="ManageRequirementsArea">
+                <button id="ManageRequirements" onclick="location.href='{% url "Requirements"%}';">Manage requirements</button>
+            </div>
         </div>
     </div>
 </div>
@@ -118,16 +120,13 @@
 {% if not NoFileNoReq %}
 <script>
     document.querySelector('.interaction_form').addEventListener('submit', function() {
-        // Show the loading icon
+
         document.getElementById('LoadingIcon').style.display = 'flex';
         document.getElementById('LoadingText').style.display = 'flex';
 
-        document.getElementById('upload_form').style.display = 'none';
-        document.getElementById('InfoMessage').style.display = 'none';
-        document.getElementById('interForm').style.display = 'none';
-        document.getElementById('outArea').style.display = 'none';
-        document.getElementById('output_text').style.display = 'none';
-        document.getElementById('ManageRequirementsArea').style.display = 'none';
+        document.getElementById('UploadGenerateArea').style.visibility = 'hidden';
+        document.getElementById('OutputDisplay').style.visibility = 'hidden';
+        document.getElementById('SuccessMessage').style.visibility = 'hidden';
 
     });
 </script>
