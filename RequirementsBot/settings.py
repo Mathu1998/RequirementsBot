@@ -138,6 +138,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads/RequirementsBot")
 MEDIA_URL = "/user-media/"
 
 # For deploying
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Backing up for modifying the prototype
