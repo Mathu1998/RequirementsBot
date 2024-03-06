@@ -1,3 +1,5 @@
+# In here the models were set regarding the SQLite database structure
+
 from django.db import models
 
 class UserData(models.Model):

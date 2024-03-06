@@ -1,3 +1,6 @@
+# In here the data tables (models) defined in models.py can be integrated into the admin panel,
+# also with specific configurations, if necessary or desired
+
 from django.contrib import admin
 from .models import DataUpload, RequirementsList, RequirementDetail, UserData
     

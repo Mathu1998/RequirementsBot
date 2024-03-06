@@ -19,7 +19,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-
+# The projects url patterns are defined and the path to the static files is set, 
+# but only for helping in development mode.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('GPTCommunication.urls'))

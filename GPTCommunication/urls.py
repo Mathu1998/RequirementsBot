@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 # Integration of views and match them to urls
+# If an url is used it will directly call or trigger the view function associate to that, in views.py
 urlpatterns = [
     path("reqgen", views.RequirementGen.handleProcess, name="ReqGen"),
     path("home", views.SoleDisplay.showHome, name="Home"),
