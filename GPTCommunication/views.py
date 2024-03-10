@@ -56,7 +56,7 @@ class RequirementGen:
                         },
                         {
                             "role": "user",
-                            "content": "Generate a user story description and three (3) acceptance criteria for the requirements and output them in a structured way by using this template" + output_template + "and by using the provided input data and information. The user story description should not be longer then two sentences. Do not add any information more than the template defines, but be precise as much as possible."
+                            "content": "Generate a user story description and three (3) acceptance criteria for the requirements and output them in a structured way by using this template" + output_template + "and by using the provided input data and information. The user story description should not be longer than two sentences. Do not add more information than the template defines, be precise as much as possible."
                         }
                     ],
                     model="gpt-4-1106-preview",
@@ -134,7 +134,7 @@ class RequirementGen:
                         },
                         {
                             "role": "user",
-                            "content": "Suggest three (3) requirements and output them in a structured way by using this template" + output_template + "and by using the provided input data. The requirement description should not be longer then two sentences. Do not add any information more than the template defines, but be precise as much as possible. The requirements should be different and not similar."
+                            "content": "Suggest three (3) requirements and output them in a structured way by using this template" + output_template + "and by using the provided input data. The requirement description should not be longer than two sentences. Do not add more information than the template defines, be precise as much as possible. The requirements should be different and not similar."
                         }
                     ],
                     model="gpt-4-1106-preview",
