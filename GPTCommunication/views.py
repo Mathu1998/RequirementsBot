@@ -25,7 +25,7 @@ class RequirementGen:
         # Gets all DB entries and saves them in a variable
         requirements = RequirementsList.objects.all()
 
-        # Template showing how GPT should generate requirements
+        # Template showing how GPT should generate requirements 
         output_template = """
         Description:
         {User Story}
